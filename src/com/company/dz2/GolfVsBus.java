@@ -29,7 +29,7 @@ public class GolfVsBus {
          * создаем методы рассчета расстояний при полностью заправленом баке, с учетом расхода
          *
          * @param args the input arguments
-         */
+         */      
         int rasstojanieGolf = golf.put(golf);
         System.out.println(golf.getName() + " на полном баке пройдет расстояние " + rasstojanieGolf + " киллометров");
 
