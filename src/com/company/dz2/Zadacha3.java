@@ -4,17 +4,7 @@ package com.company.dz2;
 public class Zadacha3 {
 
     public static void main(String[] args) {
-        int chislo = 102;
-        if (chislo % 2 != 0 && chislo % 3 != 0 && chislo % 5 != 0 && chislo % 7 != 0 && chislo % 9 != 0) {
-            System.out.println("да,это простое число");
-        } else {
-            System.out.println("Число не является простым");
-        }
-/**
- * Второй способ решения задачи
- *
- * @param args the input arguments
- */
+     int chislo=4213529;
         int i;
         for (i = 2; i < chislo; i++) {
             if (chislo % i == 0) {
