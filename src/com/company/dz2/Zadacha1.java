@@ -1,17 +1,16 @@
 package com.company.dz2;
 
-//Изменить пример с числами, чтобы рассчитывался факториал фисла
+ //факториал числа
 public class Zadacha1 {
     public static void main(String[] args) {
 
 
-
-        long proizv = 1;
+int chislo=4;
+        long fakt = 1;
         int i = 1;
-        while (i <=4) {
-            proizv = proizv * i;
+        while (i <=chislo) {
+            fakt = fakt * i;
             i++;
         }
-        System.out.println(proizv);
+        System.out.println(fakt);
     }}
-    
