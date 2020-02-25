@@ -17,6 +17,7 @@ public class Task2 {
             System.out.print(mas[i] + " ");
         }
 int sum = 0;
+        int indexDist=mas.length;
         int indexMin = 0;
         int min = mas[0];
         int indexMax = 0;
@@ -34,7 +35,21 @@ int sum = 0;
                 min = mas[i];
                 indexMin = i;
             }
-        }  /**
+        }
+        /**
+         поиск минимального расстояния между min  и max
+         */
+        for (i = 0; i < mas.length; i++) {
+            for (int j = 0; j <  mas.length; j++) {
+                if (( mas[i] == max) && ( mas[j] == min) && (Math.abs(i - j) < indexDist+ 1)) {
+                    indexDist = Math.abs(i - j) - 1;
+                    indexMin = j;
+                    indexMax = i;
+                }
+            }
+        }
+
+        /**
          * условие если минимальный элемент идет раньше максимального
          */
 
