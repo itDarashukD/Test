@@ -2,7 +2,6 @@ package com.company.dz4;
 /**
  * Привести все символы строки к верхнему регистру, без использования ApperCase
  */
-
 import java.util.Formatter;
 
 public class Task21 {
@@ -13,7 +12,7 @@ public class Task21 {
         /**
          Создаем объект класса  Formatter
          */
-        Formatter formatText = new Formatter(); // объявление объекта
+        Formatter formatText = new Formatter();
 
         String text = "Работает при условии ввода знака препинания, из числа перечисленных!";
 
