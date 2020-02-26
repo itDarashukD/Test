@@ -1,4 +1,4 @@
-package com.company.dz4;
+/*package com.company.dz4;
 
 import java.util.ArrayList;
 
@@ -42,3 +42,4 @@ public class Task20question {
         System.out.println(text);
     }
 }
+*/
