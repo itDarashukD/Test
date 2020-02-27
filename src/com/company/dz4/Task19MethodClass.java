@@ -1,5 +1,6 @@
 package company.dz4;
 
+
 public class Task19MethodClass {
     private static String text = "     Подсчитать количество слов в тексте, со знаками припенания! ;   ";
 
@@ -15,11 +16,13 @@ public class Task19MethodClass {
     printText(getText());
     spacesOut(getText());
     punctuationOut(text.trim());
-    spacesNumbers(text.trim().replaceAll("[;:?!,.()]", ""));
-    printNumbers(numbersWords);
+    int a =  spacesNumbers(text.trim().replaceAll("[;:?!,.()]", ""));
+    printNumbers(a);
     }
-
-    private static void printNumbers(Integer numbersWords) {
+    /**
+     решил, но не красиво
+     */
+    private static void printNumbers(int numbersWords) {
         System.out.println(numbersWords);
     }
 
