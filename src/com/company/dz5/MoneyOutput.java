@@ -5,15 +5,20 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class MoneyOutput {
-    public static int outPutMoney() throws IOException {
+    public static void outPutMoney() throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Введите сумму денег");
+        System.out.println("Введите сумму денег которую хотите снять");
 
         String sage = reader.readLine();
-        int howMatchMoney = Integer.parseInt(sage);
-        if((howMatchMoney%20==0)||(howMatchMoney%50==0)){
+        int howMatchMoneyTakeAway = Integer.parseInt(sage);
+        if((howMatchMoneyTakeAway % 20!=0)||(howMatchMoneyTakeAway % 50!=0)){
             System.out.println("Банкомат не может выдать такую сумму, введите сумму кратную 20 или 50");}
 
-        return howMatchMoney;
+       MoneyValidator.calculateMoney();//запрос в валидатор какими купюрами выдавать и есть-ли такая сумма в хранилище
+
+
+
+        System.out.println("Заберите Ваши деньги");
+
     }
 }
