@@ -34,7 +34,7 @@ public class MoneyInput {
         int sumNote100=0;
 
         while (true){
-
+    
             String sage = reader.readLine();
             int howMatchMoney = Integer.parseInt(sage);
             if((howMatchMoney!=20)&&(howMatchMoney!=50)&&(howMatchMoney!=100)){

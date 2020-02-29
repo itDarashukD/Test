@@ -1,22 +1,22 @@
 package company.dz5;
+
 import sun.font.DelegatingShape;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Bancomat {
     public static void main(String[] args) throws IOException {
-MoneyInput input = new MoneyInput();
-MoneyStorage storage = new MoneyStorage(120,150,100);
-MoneyValidator validator = new MoneyValidator();
-MoneyOutput output = new MoneyOutput();
+        MoneyInput input = new MoneyInput();
+        MoneyStorage storage = new MoneyStorage(120, 150, 100);
+        MoneyValidator validator = new MoneyValidator();
+        MoneyOutput output = new MoneyOutput();
 
-MoneyInput.start();
-
+        MoneyInput.start();
     }
 
-
-    }
+}
 
 
 

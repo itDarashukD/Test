@@ -12,9 +12,7 @@ public class MoneyStorage {
         this.note20 = note20;
         this.note50 = note50;
         this.note100 = note100;
-
     }
-
     public int getNote20() {
         return note20;
     }
@@ -53,5 +51,14 @@ public class MoneyStorage {
 
     public void setSumMoney(int sumMoney) {
         this.sumMoney = sumMoney;
+    }
+    // передаем в хранилище количество купюр которое будем выдавать и
+    // вычитаем выданные купюры. Считаем сколько денег останется в хранилище после выдачи
+    public static void howMachNoteMoneyTakeAway() {
+        setNote20 = getNote20() - MoneyValidator.dvadcatka;
+        setNote50 = getNote50() - MoneyValidator.piatidesiatka;
+        setNote100 = getNote100() - MoneyValidator.sotnya1;
+        setSumMoney = getSumMoney() - MoneyOutput.howMatchMoneyTakeAway;
+        System.out.println("На данный момент в хранилище находится");
     }
 }
