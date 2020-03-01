@@ -10,13 +10,18 @@ public class Bancomat {
     public static void main(String[] args) throws IOException {
         MoneyInput input = new MoneyInput();
         MoneyStorage storage = new MoneyStorage(120, 150, 100);
+        MoneyStorage storage1 = new MoneyStorage(200,19900);
         MoneyValidator validator = new MoneyValidator();
         MoneyOutput output = new MoneyOutput();
 
-        MoneyInput.start();
-    }
+        input.start();
 
+        input.money();
+    }
 }
+
+
+
 
 
 

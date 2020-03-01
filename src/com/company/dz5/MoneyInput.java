@@ -5,9 +5,28 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class MoneyInput {
-  private static   int inputSumNote20;
-  private  static int inputSumNote50 ;
-  private  static int inputSumNote100 ;
+    private static int inputSumNote20;
+    private static int inputSumNote50;
+    private static int inputSumNote100;
+
+    private static int inputSumNote;
+    private static int InputSumMoney;
+
+    public static int getInputSumNote() {
+        return inputSumNote;
+    }
+
+    public static void setInputSumNote(int inputSumNote) {
+        MoneyInput.inputSumNote = inputSumNote;
+    }
+
+    public static int getInputSumMoney() {
+        return InputSumMoney;
+    }
+
+    public static void setInputSumMoney(int inputSumMoney) {
+        InputSumMoney = inputSumMoney;
+    }
 
     public static int getInputSumNote20() {
         return inputSumNote20;
@@ -33,56 +52,66 @@ public class MoneyInput {
         MoneyInput.inputSumNote100 = inputSumNote100;
     }
 
-    public static void start() throws IOException {
-        System.out.println("Банкомат принемает купюры номиналом 20,50,100р");
+    public void start() throws IOException {
+        System.out.println("Банкомат принемает купюры номиналом 20 ,50 ,100 ");
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Введите требуемую операцию: пополнение денег в банкомате - (inPutMoney)  или снятие денег - (outPutMoney) ");
+        System.out.println("Введите требуемую операцию: пополнение денег:  1  или снятие денег: 2 ");
 
-        String nameOperation = reader.readLine();
-        if (nameOperation.equals("inPutMoney")) {
+        String sage = reader.readLine();
+        int nameOperation = Integer.parseInt(sage);
+        if (nameOperation == 1) {
             money();
 
         }
-        if (nameOperation.equals("outPutMoney")) {
+        if (nameOperation == 2) {
             MoneyOutput.outPutMoney();
 
         }
-        if (((!nameOperation.equals("outPutMoney"))) && (!nameOperation.equals("inPutMoney"))) {
-            System.out.println("Введенная опереция не существует, введите верное имя операции");
+        if (((nameOperation != 1)) && (nameOperation != 2)) {
+            System.out.println("Введенная опереция не существует, введите верный номер операции");
         }
     }
 
-    public static void money() throws IOException {
+    public void money() throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Засуньте купюры в купюроприемник, по окончании нажмите: 0 ");
 
-        while (true){
 
+        while (true) {
+            System.out.println("Засуньте купюры в купюроприемник, по окончании нажмите: 0 ");
             String sage = reader.readLine();
             int howMatchMoney = Integer.parseInt(sage);
-            if((howMatchMoney!=20)&&(howMatchMoney!=50)&&(howMatchMoney!=100)){
-                System.out.println("Купюры такого номинала не принемаются, внесите купюры 20 ,50, 100");}
-            if(howMatchMoney == 20){setInputSumNote20(inputSumNote20++);}
-            if(howMatchMoney == 50){setInputSumNote50(inputSumNote50++);}
-            if(howMatchMoney == 100){setInputSumNote100(inputSumNote100++);}
+            if (howMatchMoney == 0) {
+                break;
+            }
+            if ((howMatchMoney != 20) && (howMatchMoney != 50) && (howMatchMoney != 100)) {
+                System.out.println("Купюры такого номинала не принемаются, внесите купюры 20 ,50, 100");
+            }
+            if (howMatchMoney == 20) {
+                inputSumNote20++;
+            }
+            if (howMatchMoney == 50) {
+                inputSumNote50++;
+            }
+            if (howMatchMoney == 100) {
+                inputSumNote100++;
+            }
 
-            if(howMatchMoney==0){
-                break; }}
+
+        }
 
 /**
- как передать полученные значения количества разных купюр и общее количество денег в хранилище?
+ рассчет общего количество внесенных купюр и денег
  */
-            int inputSumNote=getInputSumNote20()+getInputSumNote50()+getInputSumNote100();
-            int InputSumMoney=getInputSumNote20()*20+getInputSumNote50()*50+getInputSumNote100()*100;
-            System.out.println("Количество купюр номиналом 20 положено в банкомат: " + getInputSumNote20());
-            System.out.println("Количество купюр номиналом 50 положено в банкомат: " + getInputSumNote50());
-            System.out.println("Количество купюр номиналом 100 положено в банкомат: " + getInputSumNote100());
-            System.out.println("Общее количество купюр номиналом 20,50,100 положено в банкомат: " + inputSumNote);
-            System.out.println("Сумма положенная в банкомат равна: " + InputSumMoney);
+        inputSumNote = getInputSumNote20() + getInputSumNote50() + getInputSumNote100();
+        InputSumMoney = getInputSumNote20() * 20 + getInputSumNote50() * 50 + getInputSumNote100() * 100;
+        System.out.println("Количество купюр номиналом 20 положено в банкомат: " + getInputSumNote20());
+        System.out.println("Количество купюр номиналом 50 положено в банкомат: " + getInputSumNote50());
+        System.out.println("Количество купюр номиналом 100 положено в банкомат: " + getInputSumNote100());
+        System.out.println("Общее количество купюр номиналом 20,50,100 положено в банкомат: " + getInputSumNote());
+        System.out.println("Сумма положенная в банкомат равна: " + getInputSumMoney());
 
-
+        MoneyStorage.fromInputToStorage();
     }
-
 
 }
