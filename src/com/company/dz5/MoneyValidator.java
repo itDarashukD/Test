@@ -64,11 +64,13 @@ public class MoneyValidator {
         MoneyValidator.dvadcatka = dvadcatka;
     }
     public static void calculateMoney() {
-
-        //проверяем есть-ли в банкомате столько денег
-        if (MoneyStorage.getSumMoney() > getHowMatchMoneyTakeAway()) {
-
-            // рассчитываем какими купюрами выдавать
+/**
+ проверяем есть-ли в банкомате столько денег
+ */
+            if (MoneyStorage.getSumMoney() > getHowMatchMoneyTakeAway()) {
+/**
+ рассчитываем какими купюрами выдавать
+ */
             if (MoneyOutput.getHowMatchMoneyTakeAway() < 10000) {
                 sotnya = MoneyOutput.getHowMatchMoneyTakeAway() / 100 * 100;
                 sotnya1 = MoneyOutput.getHowMatchMoneyTakeAway() / 100;
@@ -76,12 +78,10 @@ public class MoneyValidator {
                 if (MoneyStorage.getNote100() > sotnya1) {//проверка хватит-ли сотен в хранилице,для выдачи,если да,то:
                     if (MoneyOutput.getHowMatchMoneyTakeAway() - getSotnya() == 50) {
                         piatidesiatka = 1;
-
                     }
                     if ((MoneyOutput.getHowMatchMoneyTakeAway() - getSotnya()) % 20 == 0) {
 
                         dvadcatka = (MoneyOutput.getHowMatchMoneyTakeAway() - getSotnya()) / 20;
-
                     }
                     sumMoneyOutput = getDvadcatka() * 20 + getPiatidesiatka() * 50 + getSotnya1() * 100;
                     sumNoteOutput = getSotnya1() + getPiatidesiatka() + getDvadcatka();
@@ -89,7 +89,9 @@ public class MoneyValidator {
                     System.out.println("Количество купюр для выдачи номиналом 50: " + getPiatidesiatka());
                     System.out.println("Количество купюр для выдачи номиналом 20: " + getDvadcatka());
                 } else {
-                    //если сотен в хранилище меньше требуемого количества,то :
+                    /**
+                      если сотен в хранилище меньше требуемого количества,то :
+                     */
                     sotnya1 = MoneyStorage.getNote100();
                     int difference = MoneyOutput.getHowMatchMoneyTakeAway() - getSotnya();
 
@@ -108,9 +110,10 @@ public class MoneyValidator {
                 }
 
             }
-            // передаем в хранилище количество купюр которое будем выдавать
-            MoneyStorage.howMachNoteMoneyTakeAway();
-
+                /**
+                 передаем в хранилище количество купюр которое будем выдавать
+                 */
+                  MoneyStorage.howMachNoteMoneyTakeAway();
         } else {
             System.out.println("В банкомате нет такого количества денег");
 

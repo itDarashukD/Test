@@ -11,11 +11,9 @@ public class Bancomat {
         MoneyInput input = new MoneyInput();
         MoneyStorage storage = new MoneyStorage(120, 150, 100);
         MoneyStorage storage1 = new MoneyStorage(200,19900);
-        MoneyValidator validator = new MoneyValidator();
-        MoneyOutput output = new MoneyOutput();
+
 
         input.start();
-
         input.money();
     }
 }

@@ -51,7 +51,9 @@ public class MoneyInput {
     public static void setInputSumNote100(int inputSumNote100) {
         MoneyInput.inputSumNote100 = inputSumNote100;
     }
-
+    /**
+Начало работы
+     */
     public void start() throws IOException {
         System.out.println("Банкомат принемает купюры номиналом 20 ,50 ,100 ");
 
@@ -72,7 +74,9 @@ public class MoneyInput {
             System.out.println("Введенная опереция не существует, введите верный номер операции");
         }
     }
-
+    /**
+Работа купюроприемника
+     */
     public void money() throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
@@ -83,7 +87,9 @@ public class MoneyInput {
             int howMatchMoney = Integer.parseInt(sage);
             if (howMatchMoney == 0) {
                 break;
-            }
+            }/**
+проверка на номинал
+             */
             if ((howMatchMoney != 20) && (howMatchMoney != 50) && (howMatchMoney != 100)) {
                 System.out.println("Купюры такого номинала не принемаются, внесите купюры 20 ,50, 100");
             }

@@ -57,7 +57,10 @@ public class MoneyStorage {
         MoneyStorage.note50 = note50;
         MoneyStorage.note100 = note100;
     }
-    // передаем в хранилище количество купюр которое вставлено в банкомат
+    /**
+      передаем в хранилище количество купюр которое вставлено в банкомат
+     */
+
     public static void fromInputToStorage() {
         note20 = getNote20()+MoneyInput.getInputSumNote20();
         note50 = getNote50()+MoneyInput.getInputSumNote50();
@@ -67,18 +70,20 @@ public class MoneyStorage {
         System.out.println("На данный момент в хранилище находится 20-ток: "+getNote20()+"; 50-ток: "+getNote50()+ ";" +
                 " 100-к: " +getNote100());
 
-    }
-    // передаем в хранилище количество купюр которое будем выдавать и
-    // вычитаем выданные купюры. Считаем сколько денег останется в хранилище после выдачи
-   public static void howMachNoteMoneyTakeAway() {
+    }/**
+      передаем в хранилище количество купюр которое будем выдавать и
+      вычитаем выданные купюры. Считаем сколько денег останется в хранилище после выдачи
+     */
+     public static void howMachNoteMoneyTakeAway() {
        note20 = getNote20() - MoneyValidator.getDvadcatka();
        note50 = getNote50() - MoneyValidator.getPiatidesiatka();
        note100 = getNote100() - MoneyValidator.getSotnya1();
        sumNote = getSumNote()- MoneyValidator.getSumNoteOutput();
        sumMoney = getSumMoney() - MoneyValidator.getSumMoneyOutput();
         System.out.println("На данный момент в хранилище находится сумма: "+ getSumMoney());
-
-       // передаем в MoneyOutput команду на выдачу и выдаваемо сумму
-       MoneyOutput.howMatchMoneyTakeAwayOutMoney();
+/**
+  передаем в MoneyOutput команду на выдачу и выдаваемо сумму
+ */
+             MoneyOutput.howMatchMoneyTakeAwayOutMoney();
     }
 }
