@@ -20,7 +20,7 @@ public class MoneyOutput {
 /**
  проверка на кратность снмаемой суммы
  */
-        System.out.println("Введите сумму денег которую хотите снять");
+        System.out.println("Введите сумму денег которую хотите снять, максимальная сумма 10000");
         while (true) {
             String sage = reader.readLine();
             howMatchMoneyTakeAway = Integer.parseInt(sage);

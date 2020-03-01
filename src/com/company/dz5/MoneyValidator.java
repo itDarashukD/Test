@@ -72,7 +72,7 @@ public class MoneyValidator {
 /**
  рассчитываем какими купюрами выдавать
  */
-            if (MoneyOutput.getHowMatchMoneyTakeAway() < 1000) {
+            if (MoneyOutput.getHowMatchMoneyTakeAway() <= 10000) {
                 sotnya = MoneyOutput.getHowMatchMoneyTakeAway() / 100 * 100;
                 sotnya1 = MoneyOutput.getHowMatchMoneyTakeAway() / 100;
 
@@ -89,12 +89,13 @@ public class MoneyValidator {
                     System.out.println("Количество купюр для выдачи номиналом 100: " + getSotnya1());
                     System.out.println("Количество купюр для выдачи номиналом 50: " + getPiatidesiatka());
                     System.out.println("Количество купюр для выдачи номиналом 20: " + getDvadcatka());
-                } else {
+                }  if (MoneyStorage.getNote100() < sotnya1){
                     /**
                       если сотен в хранилище меньше требуемого количества,то :
                      */
                     sotnya1 = MoneyStorage.getNote100();
-                    int difference = MoneyOutput.getHowMatchMoneyTakeAway() - getSotnya1();
+
+                    int difference = MoneyOutput.getHowMatchMoneyTakeAway() - sotnya1*100;
 
                     piatidesiatka = difference / 50;
 
