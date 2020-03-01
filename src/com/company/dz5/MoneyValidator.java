@@ -63,6 +63,7 @@ public class MoneyValidator {
     public static void setDvadcatka(int dvadcatka) {
         MoneyValidator.dvadcatka = dvadcatka;
     }
+
     public static void calculateMoney() {
 /**
  проверяем есть-ли в банкомате столько денег
@@ -71,7 +72,7 @@ public class MoneyValidator {
 /**
  рассчитываем какими купюрами выдавать
  */
-            if (MoneyOutput.getHowMatchMoneyTakeAway() < 10000) {
+            if (MoneyOutput.getHowMatchMoneyTakeAway() < 1000) {
                 sotnya = MoneyOutput.getHowMatchMoneyTakeAway() / 100 * 100;
                 sotnya1 = MoneyOutput.getHowMatchMoneyTakeAway() / 100;
 
@@ -93,7 +94,7 @@ public class MoneyValidator {
                       если сотен в хранилище меньше требуемого количества,то :
                      */
                     sotnya1 = MoneyStorage.getNote100();
-                    int difference = MoneyOutput.getHowMatchMoneyTakeAway() - getSotnya();
+                    int difference = MoneyOutput.getHowMatchMoneyTakeAway() - getSotnya1();
 
                     piatidesiatka = difference / 50;
 

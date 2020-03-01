@@ -55,7 +55,7 @@ public class MoneyInput {
 Начало работы
      */
     public void start() throws IOException {
-        System.out.println("Банкомат принемает купюры номиналом 20 ,50 ,100 ");
+        System.out.println("Банкомат принемает и выдает купюры номиналом 20 ,50 ,100 ");
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Введите требуемую операцию: пополнение денег:  1  или снятие денег: 2 ");
