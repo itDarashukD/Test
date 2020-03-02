@@ -1,5 +1,6 @@
 package company.AMT.object;
 
+
 import java.io.IOException;
 
 public class ATM {
@@ -14,12 +15,10 @@ public class ATM {
         this.note50 = note50;
         this.note100 = note100;
     }
-
     public ATM(int sumNote, int sumMoney) {
         this.sumNote = sumNote;
         this.sumMoney = sumMoney;
     }
-
     public int getNote20() {
         return note20;
     }
@@ -65,27 +64,22 @@ public class ATM {
 
     public static void main(String[] args) throws IOException {
         ATM atm = new ATM();
-        InPut inPut = new InPut(0,0,0,0,0);
+        InPut inPut = new InPut(0, 0, 0, 0, 0);
         OutPut outPut = new OutPut();
-        Variator variator = new Variator();
-        Storage storage = new Storage(200,500,1000,170,165000);
+        Variator variator = new Variator(0, 0, 0, 0, 0, 0);
+        Storage storage = new Storage(200, 500, 1000, 170, 165000);
 
         inPut.start();
+        inPut.howManyMoneyInPut();
+        storage.fromInPutToStorage(inPut);
 
 
-
-    }}
-
-
-
-
-
-
-
-
-
-
-
+        outPut.outPutStart(inPut);
+        variator.fromOutPutToValidator(outPut, storage);
+        storage.howMachNoteMoneyTakeAway(variator);
+        outPut.getYourMoney();
+    }
+}
 
 
 //

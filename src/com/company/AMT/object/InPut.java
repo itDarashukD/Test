@@ -72,10 +72,10 @@ public class InPut {
         int nameOperation = Integer.parseInt(sage);
         if (nameOperation == 1) {
 
-            inPutmoney(inputSumNote20, inputSumNote50, inputSumNote100);
+            inPutmoney();
         }
         if (nameOperation == 2) {
-            MoneyOutput.outPutMoney();
+            outPut.outPutStart(); //  Хчу вызвать метод public void outPutStart из outPut
 
         }
         if (((nameOperation != 1)) && (nameOperation != 2)) {
@@ -83,7 +83,8 @@ public class InPut {
         }
     }
 
-    private void inPutmoney(int inputSumNote20, int inputSumNote50, int inputSumNote100) throws IOException {
+
+    private void inPutmoney() throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
         while (true) {
@@ -109,11 +110,11 @@ public class InPut {
             }
         }
     }
-
     /**
      * рассчет общего количество внесенных купюр и денег
      */
-    private void howManyMoneyInPut() {
+
+        public void howManyMoneyInPut() {
 
         inputSumNote = getInputSumNote20() + getInputSumNote50() + getInputSumNote100();
         inputSumMoney = getInputSumNote20() * 20 + getInputSumNote50() * 50 + getInputSumNote100() * 100;
@@ -122,10 +123,7 @@ public class InPut {
         System.out.println("Количество купюр номиналом 100 положено в банкомат: " + getInputSumNote100());
         System.out.println("Общее количество купюр номиналом 20,50,100 положено в банкомат: " + getInputSumNote());
         System.out.println("Сумма положенная в банкомат равна: " + getInputSumMoney());
-
-
-        Storage.AllfromInputToStorage();
-}
+    }
 
 
 }
