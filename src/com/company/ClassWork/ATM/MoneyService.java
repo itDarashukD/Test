@@ -13,9 +13,9 @@ public class MoneyService {
     private int dvadcatka;
     private int sumNoteOutput;
     private int sumMoneyOutput;
-    int d = 0;
-    int p = 0;
-    int s = 0;
+    int count20 = 0;
+    int count50 = 0;
+    int count100 = 0;
     public int getPiatidesiatka() {
         return piatidesiatka;
     }
@@ -90,15 +90,13 @@ public class MoneyService {
             if ((howMatchMoney != 20) && (howMatchMoney != 50) && (howMatchMoney != 100)) {
                 System.out.println("Купюры такого номинала не принемаются, внесите купюры 20 ,50, 100");
             }
-            if (howMatchMoney == 20) {
-                moneyStorage.setNote20(++d);
+            else if (howMatchMoney == 20) {
+                moneyStorage.setNote20(++count20);
             }
-            if (howMatchMoney == 50) {
-                moneyStorage.setNote50(++p);
+           else if (howMatchMoney == 50) {
+                moneyStorage.setNote50(++count50);
             }
-            if (howMatchMoney == 100) {
-                moneyStorage.setNote100(++s);
-            }
+            else  {moneyStorage.setNote100(++count100);            }
         }
         howMatchMoneyIncert(moneyStorage);
 
