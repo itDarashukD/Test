@@ -108,10 +108,10 @@ public class MoneyService {
      * рассчет общего количество внесенных купюр и денег
      */
         moneyStorage.setSumNote(moneyStorage.getNote20() + moneyStorage.getNote50() + moneyStorage.getNote100());
-        System.out.println("Количество купюр номиналом 20 положено в банкомат: " + moneyStorage.getNote20());
-        System.out.println("Количество купюр номиналом 50 положено в банкомат: " + moneyStorage.getNote50());
-        System.out.println("Количество купюр номиналом 100 положено в банкомат: " + moneyStorage.getNote100());
+        System.out.printf("Количество купюр положено в банкомат: номиналом 100: %s, номиналом 50: %s, номиналом 20: %s ",
+                moneyStorage.getNote100(), moneyStorage.getNote50(), moneyStorage.getNote20());
         System.out.println("Общее количество купюр номиналом 20,50,100 положено в банкомат: " + moneyStorage.getSumNote());
+
 
         System.out.println("Сумма положенная в банкомат равна: " + (moneyStorage.getNote20() * 20 + moneyStorage.getNote50()
                 * 50 + moneyStorage.getNote100() * 100));
@@ -164,9 +164,9 @@ public class MoneyService {
                         dvadcatka = (getHowMatchMoneyTakeAway() - getSotnya()) / 20;
                     }
                     moneyStorage.setSumNote(moneyStorage.getSumNote() - getSotnya1() + getPiatidesiatka() + getDvadcatka());
-                    System.out.println("Количество купюр для выдачи номиналом 100: " + getSotnya1());
-                    System.out.println("Количество купюр для выдачи номиналом 50: " + getPiatidesiatka());
-                    System.out.println("Количество купюр для выдачи номиналом 20: " + getDvadcatka());
+                   System.out.printf("Количество купюр для выдачи: номиналом 100 %s, номиналом 50 %s, номиналом 20 %s ",
+                            getSotnya1(), getPiatidesiatka(), getDvadcatka());
+
                 }    /**
                  если сотен в хранилище меньше требуемого количества,то : */
                 if (moneyStorage.getNote100() < sotnya1) {
@@ -177,9 +177,8 @@ public class MoneyService {
                         dvadcatka = (getHowMatchMoneyTakeAway() - getSotnya()) / 20;
                     }
                     moneyStorage.setSumNote(moneyStorage.getSumNote() - getSotnya1() + getPiatidesiatka() + getDvadcatka());
-                    System.out.println("Количество купюр для выдачи номиналом 100: " + getSotnya1());
-                    System.out.println("Количество купюр для выдачи номиналом 50: " + getPiatidesiatka());
-                    System.out.println("Количество купюр для выдачи номиналом 20: " + getDvadcatka());
+                    System.out.printf("Количество купюр для выдачи: номиналом 100: %s, номиналом 50: %s, номиналом: 20 %s ",
+                            getSotnya1(), getPiatidesiatka(), getDvadcatka());
                 }
             }
         }
