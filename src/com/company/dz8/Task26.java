@@ -4,6 +4,7 @@ package company.dz8;
  * // Создать список оценок учеников с помощью АррайЛист , заполниь случайными оценками.
  * // Удалить неудовлетворительные оценки из списка
  */
+
 import java.util.ArrayList;
 
 public class Task26 {
@@ -15,7 +16,7 @@ public class Task26 {
         ArrayList<Integer> list = new ArrayList<>();
 
         for (int i = 0; i < 20; i++) {
-        
+
             list.add((int) (Math.random() * 10 + 1));
         }
         /**
