@@ -24,6 +24,7 @@ public class Task_28 {
          создаем Итератор
          */
         Iterator<Integer> iterator = list.iterator();
+        max = list.get(0);
         while (iterator.hasNext()) {
             int s = iterator.next();
             /**
