@@ -6,30 +6,35 @@ import java.util.OptionalDouble;
 /**
  * Записать в двоичный файл 20 случайных чисел.Прочитать записанный файл, распечатать числа и их СА.
  */
-public class Task_32 {
+public class Task32 {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         ArrayList<Integer> list = new ArrayList<>();
-        /**
-         * Записываем в двоичный файл 20 случайных чисел
-         */
-        DataOutputStream a;
+        DataOutputStream dataOutputStream;
+
         try {
-            a = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(
+            dataOutputStream = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(
                     "C:\\Users\\Дима\\IdeaProjects\\from GitHub 2\\DV.dat")));
         } catch (FileNotFoundException e) {
             System.out.println("file not found");
             return;
         }
+
         for (int i = 1; i <= 20; i++) {
-            a.writeInt((int) (Math.random() * 9));
+            try {
+                dataOutputStream.writeInt((int) (Math.random() * 9));
+            } catch (IOException e) {
+                System.out.println("Ошибка записи в файл");
+            }
         }
 
-        a.close();
-/**
- Читаем записанный файл
- */
-        DataInputStream dataInputStream = null;
+        try {
+            dataOutputStream.close();
+        } catch (IOException e) {
+            System.out.println("поток не закрыт");
+        }
+
+        DataInputStream dataInputStream ;
         try {
             dataInputStream = new DataInputStream(new BufferedInputStream(new FileInputStream(
                     "C:\\Users\\Дима\\IdeaProjects\\from GitHub 2\\DV.dat")));
@@ -37,29 +42,31 @@ public class Task_32 {
             System.out.println("file not found");
             return;
         }
+
         while (true) {
             try {
                 int res = dataInputStream.readInt();
                 System.out.print(res + " ");
-/**
- заносим числа в Лист
- */
                 list.add(res);
             } catch (EOFException e) {
                 break;
+            } catch (IOException e) {
+                System.out.println("ошибка чтения из файла");
             }
         }
-        /**
-        Выводим Лист
-         */
+
+        try {
+            dataInputStream.close();
+        } catch (IOException e) {
+            System.out.println("поток не закрыт");
+        }
+
         System.out.println();
         for (Integer var : list) {
             System.out.print(var);
         }
         System.out.println();
-/**
- создаем из Листа Стрим и применяем метод СА
- */
+
         OptionalDouble list3 = list.stream().mapToInt(x -> x).average();
         System.out.print(list3);
     }
