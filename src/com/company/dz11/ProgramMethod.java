@@ -25,8 +25,8 @@ public class ProgramMethod {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(path))) {// записываем в файл объекты
             oos.writeObject(listBook);
 
-        } catch (Exception e) {
-            System.out.println("ошибка записи в файл или он не найден");
+        } catch (IOException e) {
+            System.out.println("ошибка записи в файл ");
         }
     }
 
@@ -36,13 +36,12 @@ public class ProgramMethod {
 
             newBook = ((ArrayList<Books>) ois.readObject());
 
-        } catch (Exception e) {
-            System.out.println("файл не найден или нет сериализации");
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("Ошибка вывода или нет сериализации");
         }
+            return newBook;
 
-        return newBook;
     }
-
     private static void groupingByAutorName(ArrayList<Books> newBook) {
         newBook.stream()
                 .collect(Collectors.groupingBy(Books::getAutorBook))
