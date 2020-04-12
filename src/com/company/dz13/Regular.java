@@ -13,17 +13,20 @@ public class Regular {
     public static void main(String[] args) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
+        System.out.println("Enter your electronic wallet number ");
+
         while (true) {
             String eWalletNumber = null;
             try {
-                eWalletNumber = reader.readLine();
-                Pattern pattern = Pattern.compile("\\s*[EDR]\\s*\\d{12}\\s*");//не разобрался как сделать,чтобы пробел мог быть
-                                                                              // в любом месте, почитаю еще
+                eWalletNumber = reader.readLine().replaceAll(" ", "");
+
+                Pattern pattern = Pattern.compile("[EDR]\\d{12}");
                 Matcher matcher = pattern.matcher(eWalletNumber);
+
                 if (matcher.matches()) {
                     System.out.println("Electronic wallet number Valid");
                 } else {
-                    System.out.println("Electronic wallet number must be in the form : [A]XXXXXXXXXXXX");
+                    System.out.println("Electronic wallet number must be in the form : AXXXXXXXXXXXX");
                 }
             } catch (IOException e) {
                 System.out.println("IO mistake");
